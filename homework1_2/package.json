@@ -1,0 +1,23 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TinoKlein/webDev01.git"
+  },
+  "author": "Tino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TinoKlein/webDev01/issues"
+  },
+  "homepage": "https://github.com/TinoKlein/webDev01#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
+}
