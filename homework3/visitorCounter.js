@@ -17,7 +17,7 @@ fs.readFile('counts.txt', 'utf8', (err,data) => {
 let getRegex = /(GET)|(POST)|([\/]?\S+)/gm;
 let postRegex = /(inputCount=)([0-9]\d+)/gm;
 
-var server = net.createServer(function(socket) {
+const server = net.createServer(function(socket) {
     socket.on('data', (data) => {
 
         let match = (data.toString()).match(getRegex);
