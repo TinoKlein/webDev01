@@ -27,10 +27,16 @@ var server = net.createServer(function(socket) {
 
         if(getPost === "GET"){
             if(queryString === "/"){
+                socket.write('HTTP/1.1 200 OK\r\n');
+                socket.write('Content-Type: text/plain; charset=utf-8\r\n')
+                socket.write('\r\n');
                 socket.end(String(count));
             }else if(queryString === "/visit"){
                 count++;
                 writeCount(count);
+                socket.write('HTTP/1.1 200 OK\r\n');
+                socket.write('Content-Type: text/plain; charset=utf-8\r\n')
+                socket.write('\r\n');
                 socket.end(String(count));
             }else if(queryString === "/set") {
                 const html = '<DOCTYPE html><html><body><form style="margin 0 auto" method="post" action="http://localhost:'+port+'">Counts: <input type="text" name="inputCount" /><input type="submit" value="setzen" /></form></body>';
