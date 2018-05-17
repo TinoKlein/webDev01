@@ -1,0 +1,24 @@
+{
+  "name": "homework",
+  "version": "5.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TinoKlein/webdev01.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TinoKlein/webdev01/issues"
+  },
+  "homepage": "https://github.com/TinoKlein/webdev01#readme"
+}
