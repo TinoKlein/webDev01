@@ -1,7 +1,7 @@
 {
   "name": "homework",
   "version": "5.0.3",
-  "description": "",
+  "description": "Node.js, Express CMS",
   "main": "server.js",
   "directories": {
     "doc": "docs",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,17 @@
   "bugs": {
     "url": "https://github.com/TinoKlein/webdev01/issues"
   },
-  "homepage": "https://github.com/TinoKlein/webdev01#readme"
+  "homepage": "https://github.com/TinoKlein/webdev01#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "jquery": "^3.3.1",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.6",
+    "prepend-file": "^1.3.1"
+  }
 }

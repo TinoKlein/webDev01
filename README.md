@@ -1,22 +1,11 @@
-***webdev01 - homework 5 - HTTP Server***
+****CMS - homework 6****
 
-CLI run 
+CLI run
+
+    npm start
     
-    node server <path> <port>
+open your favorite browser and open
+
+    http://localhost/3000
     
-if you run 
-   
-    node server <path>
-    
-without port - standard port 8000 will be used!
-
-Predefined documents paths are "htdocs" and "files"
-
-
-**if CLI shows**
-
-    Server running at http://localhost:<port>
-    
-open your Browser and visit the shown url.
-
-    
+have fun!        
