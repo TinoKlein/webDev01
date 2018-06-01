@@ -1,0 +1,143 @@
+<div class="alert alert-danger" id="errorDialog" role="alert">
+	<div id="errorContent">
+
+	</div>
+</div>
+
+	<form name="artikel_eintragen" action="eintragen.js">
+		<input type="text" class="errorVal" name="title" id="title" placeholder="Title"><br>
+		<span id="titleError"></span><br>
+		<input type="text" class="errorVal" name="teaser" id="teaser" placeholder="Teaser"><br>
+		<span id="teaserError"></span><br>
+		<input type="text" class="warningVal errorVal" name="text" id="artikelText" placeholder="Artikeltext"><br>
+		<span id="artikelTextError"></span><br>
+		<input type="text" class="errorVal" name="author" id="author" placeholder="Autor"><br>
+		<span id="authorError"></span><br>
+		<input type="file" enctype="multipart/form-data" accept="image/*" name="dateien[]" id="dateien" multiple>
+		<br><br>
+		<span id="uploadFiles"></span>
+		<br><br>
+		<button class="btn btn-primary" type="button" id="submitBtn">eintragen</button>
+
+	</form>
+
+	<script type="text/javascript">
+
+        const textlaenge = 30;
+
+        const warningFields = document.getElementsByClassName('warningVal');
+        for (let i = 0; i < warningFields.length; i++) {
+            let warnID = warningFields[i].id;
+            console.log(warnID);
+            warnHandle = document.querySelector("#" + warnID);
+
+            warnHandle.addEventListener("keyup", () => {
+                if (warnID === "artikelText" && warnHandle.value.length < 30) {
+                    let uebrig = textlaenge - warnHandle.value.length;
+                    let selector = document.querySelector("#artikelTextError");
+                    selector.innerHTML = `Artikel muss mindestens ${textlaenge} Zeichen lang sein. Noch ${uebrig} zu wenig!`;
+                    selector.style.display = "block";
+                } else {
+                    let selector = document.querySelector("#artikelTextError");
+                    selector.innerHTML = "";
+                    selector.style.display = "none";
+                }
+            });
+        }
+
+
+        function artikelTextLaenge() {
+            let textLaenge = document.getElementById('artikelText').value.length;
+            if(textLaenge < textlaenge) {
+                let uebrig = textlaenge - textLaenge;
+                let selector = document.querySelector("#artikelTextError");
+                selector.innerHTML = `Artikel muss mindestens ${textlaenge} Zeichen lang sein. Noch ${uebrig} zu wenig!`;
+            }
+        }
+
+        document.getElementById("submitBtn").addEventListener("click", () => {
+            const errorFields = document.getElementsByClassName('errorVal');
+            let errorSelector, ausgabe, zeichenzahl, fehler = 0;
+
+            for(let j = 0; j < errorFields.length; j++){
+
+                let errorID = errorFields[j].id;
+                let errorHandle = document.querySelector("#"+errorID);
+                let errorValue = errorHandle.value;
+
+                switch(errorID){
+                    case "title":
+                        errorSelector = document.querySelector(`#${errorID}Error`);
+                        let wortzahl = errorValue.split(" ").length;
+                        if(wortzahl < 3 || wortzahl > 11 ){
+                            errorSelector.innerHTML = `Titel muss zwischen 3 und 11 Wörtern lang sein`;
+                            errorHandle.style.outline = "1px solid red";
+                            fehler++;
+                        }else{
+                            errorSelector.innerHTML = "";
+                            errorHandle.style.outline = "none";
+                        }
+                        break;
+
+                    case "author":
+                        errorSelector = document.querySelector(`#${errorID}Error`);
+                        if(errorValue === ""){
+                            errorSelector.innerHTML = `Autor darf nicht leer sein!`;
+                            errorHandle.style.outline = "1px solid red";
+                            fehler++;
+                        }else{
+                            errorSelector.innerHTML = "";
+                            errorHandle.style.outline = "none";
+                        }
+                        break;
+
+                    case "teaser":
+                        errorSelector = document.querySelector(`#${errorID}Error`);
+                        zeichenzahl = errorValue.length;
+                        if(zeichenzahl < 50 || zeichenzahl > 250 ){
+                            if(zeichenzahl < 50) ausgabe = `${50 - zeichenzahl} zu wenig!`; else ausgabe = `${zeichenzahl - 250} zu viel!`;
+                            errorSelector.innerHTML = `Teaser muss zwischen 50 und 250 Zeichen lang sein! ${ausgabe}`;
+                            errorHandle.style.outline = "1px solid red";
+                            fehler++;
+                        }else{
+                            errorSelector.innerHTML = "";
+                            errorHandle.style.outline = "none";
+                        }
+                        break;
+                    case "artikelText":
+                        artikelTextLaenge();
+                        errorSelector = document.querySelector(`#${errorID}Error`);
+                        zeichenzahl = errorValue.length;
+                        if(zeichenzahl < 30){
+                            errorHandle.style.outline = "1px solid red";
+                            fehler++;
+                        }else{
+                            errorHandle.style.outline = "none";
+                        }
+                        break;
+                }
+            }
+
+            if(fehler === 0){
+                document.addArticle.submit();
+            }else{
+                document.getElementById("errorContent").innerHTML = "Ein Problem ist aufgetreten. Bitte überprüfen Sie Ihre Eingabe!";
+                document.getElementById("errorDialog").style.top = "0";
+                document.getElementById("errorDialog").style.transition = "top 800ms";
+                setTimeout(() => {
+                    document.getElementById("errorDialog").style.top = "-60px";
+                    document.getElementById("errorDialog").style.transition = "top 500ms";
+                }, 3000);
+            }
+        })
+
+        document.getElementById('dateien').addEventListener("change", () => {
+            let handle = document.getElementById('dateien'), ausgabe = [];
+            document.getElementById('uploadFiles').innerHTML = "";
+            for(let f = 0; f < handle.files.length; f++){
+                document.getElementById('uploadFiles').innerHTML += handle.files[f].name+"<br>";
+                document.getElementById('uploadFiles').style.display = "block";
+            }
+        })
+
+	</script>

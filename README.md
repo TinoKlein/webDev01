@@ -1,11 +1,19 @@
-****CMS - homework 6****
+**HOMEWORK 7**
 
-CLI run
+CLI
+
+start with
+
+    npm install
+    
+continue with
 
     npm start
     
-open your favorite browser and open
+open 
 
-    http://localhost/3000
-    
-have fun!        
+    http://localhost:3000/add
+
+in your favorite browser
+
+***ENJOY VALIDATION***            
