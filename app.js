@@ -1,6 +1,7 @@
 let express = require('express');
 let handlebars = require('express-handlebars');
 let bodyParser = require('body-parser');
+const data = require('./data');
 
 let app = express();
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
@@ -24,6 +25,9 @@ app.get('/view/:id', viewController);
 app.get('/add', addController);
 app.post('/post', postController);
 app.post('/list', listController);
+app.get('/artikelJson', function (req, res) {
+    res.json(data);
+});
 
 app.listen(app.get('port'), function() { console.log('Running on localhost:' + app.get('port') + "."); });
 

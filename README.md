@@ -1,4 +1,4 @@
-**HOMEWORK 7**
+**HOMEWORK 8**
 
 CLI
 
@@ -12,8 +12,8 @@ continue with
     
 open 
 
-    http://localhost:3000/add
+    http://localhost:3000
 
 in your favorite browser
 
-***ENJOY VALIDATION***            
+***START SEARCHING***          

@@ -4,7 +4,7 @@ let moment = require('moment');
 let articles = [...Array(5)].map((val, i) => {
   return {
     id: i + 1,
-    title: faker.lorem.sentence(3,0),
+    title: faker.lorem.sentence(5,0),
     teaser: faker.lorem.sentences(1),
     text: faker.lorem.paragraph(5),
     author: faker.name.findName(),

@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const data = require('../data');
 
 let listController = function(req, res) {
