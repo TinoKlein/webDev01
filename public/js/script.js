@@ -3,7 +3,7 @@ let werte;
 
 fetch('/artikelJson')
 .then(res => res.text())
-.then(body => {werte = JSON.parse(body)});
+.then(body => werte = JSON.parse(body));
 
 document.getElementById('search').addEventListener('keyup', (search) => {
     let searchStr = search.target.value, str = "", titleTeile;
