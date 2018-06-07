@@ -15,7 +15,6 @@ document.getElementById('search').addEventListener('keyup', (search) => {
                         if (teil.includes(searchStr) && teil.length > 3) {
                             if (teil.includes(".")) {
                                 teil = teil.replace(".", "");
-
                             }
                             str += `<option value="${teil}">`;
                         }
