@@ -1,32 +1,19 @@
 {
-  "name": "webdev-01",
-  "version": "8.0.2",
-  "description": "CMS",
+  "name": "hw9",
+  "version": "1.0.0",
+  "description": "",
   "main": "app.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
-    "watch": "nodemon app --watch /",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TinoKlein/webdev01.git"
-  },
-  "author": "Armin Bartnik <armin.bartnik@gmail.com>",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TinoKlein/webdev01/issues"
-  },
-  "homepage": "https://github.com/TinoKlein/webdev01#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "faker": "^4.1.0",
-    "moment": "^2.22.1",
+    "mysql": "^2.15.0",
     "node-fetch": "^2.1.2"
-  },
-  "devDependencies": {}
+  }
 }

@@ -1,0 +1,20 @@
+<h1>add new article</h1>
+
+
+<form action="/entries" method="post">
+	<label for="title">Title</label><br>
+	<input type="text" name="title"><br><br>
+	<label for="Description">Description</label><br>
+	<textarea type="text" name="Description" rows="6"></textarea><br><br>
+	<label for="Price">Price</label><br>
+	<input type="text" name="Price"></br><br>
+	<label for="Email">Email</label><br>
+	<input type="text" name="Email"><br><br>
+	<label for="category">Categorie</label><br>
+	<select name="category">
+		{{#catOptions}}
+			<option value="{{id}}">{{name}}</option>
+		{{/catOptions}}
+	</select><br><br>
+	<input type="submit" value="submit">
+</form>
