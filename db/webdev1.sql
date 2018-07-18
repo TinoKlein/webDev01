@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 19. Jul 2018 um 01:23
+-- Erstellungszeit: 19. Jul 2018 um 01:55
 -- Server-Version: 5.7.21
 -- PHP-Version: 5.6.36
 
@@ -125,7 +125,6 @@ INSERT INTO `prop` (`id`, `houseID`, `floorID`, `floor`, `room`, `doors`, `windo
 (23, 5, 2, '1st floor', 'bedroom 2', 1, 3, 18),
 (36, 13, 1, 'ground floor', 'living room', 5, 6, 0),
 (37, 13, 1, 'ground floor', 'bathroom', 7, 4, 0),
-(38, 13, 2, '1st floor', NULL, 0, 0, 0),
 (39, 13, 0, 'basement', 'hobby', 1, 3, 26),
 (40, 13, 0, 'basement', 'laundry', 1, 1, 12),
 (41, 13, 1, 'ground floor', 'kitchen', 0, 0, 0),
@@ -167,13 +166,13 @@ ALTER TABLE `floors`
 -- AUTO_INCREMENT für Tabelle `houses`
 --
 ALTER TABLE `houses`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT für Tabelle `prop`
 --
 ALTER TABLE `prop`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
