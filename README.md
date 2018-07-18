@@ -6,7 +6,7 @@
     
 to install dependencies 
 
-you can find the file webdev1.sql in the db folder
+you can find the file webdev1.sql in the db folder  
 please import the file to your database
 
 edit the file ./exports/dbConnection.js and enter your MySql username, password and the database name
