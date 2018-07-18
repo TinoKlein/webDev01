@@ -15,12 +15,12 @@ const addRoomController = (req, res) => {
             if(numRows == 0){
                 connection.query(`INSERT INTO prop SET houseID = ${houseID}, floorID = ${floorID}, floor = (SELECT floor FROM floors WHERE id = ${floorID}), room = '${roomName}'`, (error) => {
                     if (error) throw error;
-                    res.redirect(`/property/${houseID}/${floorID}/${roomName}`);
+                    res.redirect(`/property/${houseID}/${floorID}`);
                 })
             }else{
                 connection.query(`UPDATE prop SET room = '${roomName}' WHERE houseID = ${houseID} AND floorID = ${floorID} AND room IS NULL`, (error) => {
                     if (error) throw error;
-                    res.redirect(`/property/${houseID}/${floorID}/${roomName}`);
+                    res.redirect(`/property/${houseID}/${floorID}`);
                 })
             }
 

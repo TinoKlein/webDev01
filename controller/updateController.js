@@ -17,7 +17,7 @@ let updateController = (req, res) => {
        connection.query(
            `UPDATE houses SET lastedit = ${lastedit} WHERE id = ${houseID}`, (error) => {
                if (error) throw error;
-               res.redirect(`/property/${houseID}/${floorID}/`);
+               res.redirect(`/property/${houseID}/${floorID}`);
            });
    });
 

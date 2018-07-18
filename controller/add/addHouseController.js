@@ -13,7 +13,7 @@ const addFloorController = (req, res) => {
     connection.query(`INSERT INTO houses SET street = '${street}', city = '${city}', zip = '${zip}', apartment = '${apartment}', lastedit = '${lastedit}'`, (error, result) => {
         if (error) throw error;
         houseID = result.insertId
-        connection.query(`INSERT INTO prop SET houseID = '${houseID}', floorID = '${floorID}', floor = (SELECT floor FROM floors WHERE id = ${floorID})`, (error, result) => {
+        connection.query(`INSERT INTO prop SET houseID = '${houseID}', floorID = '${floorID}', floor = (SELECT floor FROM floors WHERE id = ${floorID})`, (error) => {
             if (error) throw error;
             res.redirect(`/properties`);
         })
