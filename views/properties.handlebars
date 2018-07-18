@@ -1,0 +1,96 @@
+<section class="headline">
+	<h1>{{title}}</h1> <span class="addHouse" data-toggle="modal" data-target="#addHouseModal" data-whatever="@mdo"><img src="/images/add-green.png"></span>
+</section>
+
+<div class="houses">
+{{# properties}}
+		<div class="card">
+			<div class="card-body">
+				<a href="/property/{{houseID}}/{{floorID}}">
+					<div class="cardHead">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm">
+									{{street}}<br>
+									{{zip}} {{city}}
+								</div>
+								<div class=" text-center">
+									No. {{id}}
+								</div>
+								<div class="col-sm text-right">
+									{{getdate lastedit}}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm text-center">
+								<img src="images/floors.png"><br>
+								{{countFloors}} floors
+							</div>
+							<div class="col-sm text-center">
+								<img src="images/rooms.png"><br>
+								{{countRooms}} rooms
+							</div>
+							<div class="col-sm text-center">
+								<img src="images/windows.png"><br>
+								{{countWindows}} windows
+							</div>
+						</div>
+					</div>
+					<div class="container mt-5 pt-5">
+						<div class="row">
+							<div class="col-sm text-center">
+								<img src="images/doors.png"><br>
+								{{countDoors}} doors
+							</div>
+							<div class="col-sm">
+								&nbsp;
+							</div>
+							<div class="col-sm sm text-center">
+								<img src="images/sm.png"><br>
+								{{countSM}} qm
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+{{/properties}}
+</div>
+
+
+<div class="modal fade" id="addHouseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">add house</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form action="/addHouse" method="post">
+					<div>
+						<input class="form-control" type="text" id="street" name="street" placeholder="enter street"><br>
+						<input class="form-control" type="text" id="city" name="city" placeholder="enter city"><br>
+						<input class="form-control" type="text" id="zip" name="zip" placeholder="enter zip code"><br>
+						<input class="form-control" type="text" id="apartment" name="apartment" placeholder="enter apartment number"><br>
+						<select class="form-control" id="floorID" name="floorID">
+							<option>Select the floor where you want to start!</option>
+							{{#floorSelect}}
+								<option value="{{id}}">{{floor}}</option>
+							{{/floorSelect}}
+						</select>
+					</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<input type="submit" class="btn btn-primary" value="submit">
+			</div>
+			</form>
+		</div>
+	</div>
+</div>

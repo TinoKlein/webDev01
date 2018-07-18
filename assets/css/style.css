@@ -1,0 +1,178 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 20px; }
+
+.mainWrap {
+  width: 100%; }
+  .mainWrap .login {
+    position: absolute;
+    top: 30px;
+    right: 100px; }
+  .mainWrap .logo {
+    text-align: center;
+    max-width: 800px;
+    height: 167px;
+    margin: 0 auto;
+    margin-top: calc((100vh / 2) - 200px); }
+    .mainWrap .logo input {
+      width: 400px;
+      margin: 15px auto; }
+
+.detailHead {
+  width: 75vw;
+  margin: 15px auto 25px auto; }
+  .detailHead .h1 {
+    font-size: 2em;
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center; }
+  .detailHead a:link, .detailHead a:active, .detailHead a:visited {
+    vertical-align: -1px;
+    text-decoration: none;
+    color: #000 !important; }
+  .detailHead a:hover {
+    color: #5DE0BF; }
+
+.headline h1, .headline .addHouse {
+  display: inline-block; }
+.headline .addHouse {
+  margin-left: 20px; }
+  .headline .addHouse img {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px; }
+  .headline .addHouse:hover {
+    cursor: pointer; }
+
+.houses {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .houses .card {
+    width: calc((100vw / 3) - 30px );
+    margin: 15px 0 15px 0; }
+    .houses .card:last-child {
+      margin-right: 0; }
+  .houses a:link, .houses a:hover, .houses a:visited {
+    text-decoration: none;
+    color: black; }
+
+.cardHead {
+  margin-bottom: 40px;
+  font-size: .8em; }
+
+.floorLinks {
+  padding: 4px 0 0 15px;
+  background-color: #5DE0BF;
+  border: 1px solid #5DE0BF;
+  border-radius: 5px;
+  height: 40px; }
+  .floorLinks a {
+    margin-right: 20px;
+    text-decoration: none; }
+    .floorLinks a:last-child {
+      margin-right: 0; }
+    .floorLinks a:link, .floorLinks a:active, .floorLinks a:visited {
+      text-decoration: none;
+      color: #ffffff;
+      opacity: .5; }
+    .floorLinks a:hover {
+      opacity: 1; }
+  .floorLinks .active {
+    opacity: 1 !important; }
+  .floorLinks .add-white {
+    width: 30px;
+    height: 30px; }
+
+.roomLinks {
+  margin: 20px 0 0 15px; }
+
+.wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10vh; }
+  .wrap .counts output {
+    margin-left: 30%; }
+  .wrap .counts label {
+    width: 94px;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: -50px;
+    font-size: 1.5em; }
+  .wrap .counts .windowsLabel {
+    text-align: left;
+    padding-left: -25px; }
+  .wrap .counts .doorsSliderOutput, .wrap .counts .windowSliderOutput, .wrap .counts .smSliderOutput {
+    width: 94px;
+    height: 100px;
+    background: url("../images/cardDoors.png") no-repeat;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 15px; }
+  .wrap .counts .windowSliderOutput {
+    width: 94px;
+    height: 100px;
+    background: url("../images/cardWindows.png") no-repeat;
+    padding: 15px 0 0 5px; }
+  .wrap .counts .smSliderOutput {
+    background: url("../images/cardSm.png") no-repeat;
+    padding: 15px 5px 0 15px;
+    text-align: right; }
+
+form .submit {
+  display: block;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 10px 100px; }
+
+.floorUL {
+  list-style: none; }
+  .floorUL li {
+    width: 30%;
+    padding: 25px;
+    border: 1px solid gray;
+    border-radius: 15px; }
+    .floorUL li .floortxt {
+      margin-left: 20px; }
+
+#wrapper {
+  width: 75vw;
+  margin: 0 auto;
+  display: flex; }
+  #wrapper #detail {
+    width: 75vw;
+    padding: 3em;
+    border: 1px solid gray;
+    border-radius: 15px; }
+    #wrapper #detail .nav-item {
+      margin-right: 3em; }
+      #wrapper #detail .nav-item:last-child {
+        margin-right: 0; }
+      #wrapper #detail .nav-item .roomLink {
+        text-decoration: none;
+        color: #707070; }
+        #wrapper #detail .nav-item .roomLink:hover {
+          color: #5DE0BF; }
+      #wrapper #detail .nav-item .active {
+        color: #5DE0BF; }
+      #wrapper #detail .nav-item .add-green {
+        width: 30px;
+        height: 30px; }
+    #wrapper #detail .roomList {
+      list-style: none;
+      padding: 16px; }
+      #wrapper #detail .roomList li {
+        display: inline-block;
+        margin-right: 3em; }
+  #wrapper .houses {
+    flex-wrap: nowrap;
+    width: 200px !important; }
+    #wrapper .houses .card {
+      width: 150px; }
+
+.sb {
+  padding-bottom: 15px; }
+
+/*# sourceMappingURL=style.css.map */

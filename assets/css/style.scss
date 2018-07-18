@@ -1,0 +1,286 @@
+$mr-menu: 3em;
+$color1: #5DE0BF;
+
+body{
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	padding:20px;
+}
+
+.mainWrap{
+	width:100%;
+
+	.login{
+		position:absolute;
+		top:30px;
+		right: 100px;
+	}
+
+	.logo{
+		text-align:center;
+		max-width:800px;
+		height: 167px;
+		margin:0 auto;
+		margin-top: calc((100vh / 2) - 200px);
+
+		input{
+			width:400px;
+			margin:15px auto;
+		}
+	}
+}
+
+.detailHead{
+
+	width:75vw;
+	margin:15px auto 25px auto;
+
+	.h1{
+		font-size:2em;
+		display:inline-block;
+		width:100%;
+		margin:0 auto;
+		text-align:center;
+	}
+
+	a{
+		&:link, &:active, &:visited {
+			vertical-align: -1px;
+			text-decoration: none;
+			color: #000 !important;
+		}
+
+		&:hover{
+			color:$color1;
+		}
+	}
+}
+
+.headline{
+
+	h1, .addHouse{
+		display:inline-block;
+	}
+
+	.addHouse{
+
+		margin-left:20px;
+
+		img {
+			width: 30px;
+			height: 30px;
+			margin-top: -15px;
+		}
+
+		&:hover{
+			cursor:pointer;
+		}
+	}
+}
+
+.houses{
+	display:flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	.card{
+		width:calc((100vw / 3) - 30px );
+		margin: 15px 0 15px 0;
+
+		&:last-child{
+			margin-right:0;
+		}
+	}
+
+	a:link, a:hover, a:visited{
+		text-decoration: none;
+		color:black;
+	}
+}
+
+.cardHead{
+	margin-bottom:40px;
+	font-size:.8em;
+}
+
+.floorLinks{
+	padding:4px 0 0 15px;
+	background-color:$color1;
+	border:1px solid $color1;
+	border-radius:5px;
+	height:40px;
+
+	a{
+		margin-right: 20px;
+		text-decoration:none;
+
+		&:last-child{
+			margin-right:0;
+		}
+
+		&:link, &:active, &:visited{
+			text-decoration:none;
+			color:#ffffff;
+			opacity: .5;
+		}
+
+		&:hover{
+			opacity: 1;
+		}
+	}
+
+	.active{
+		opacity: 1 !important;
+	}
+
+	.add-white{
+		width:30px;
+		height:30px;
+	}
+}
+
+.roomLinks{
+	margin:20px 0 0 15px;
+}
+
+
+.wrap {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	margin-top:10vh;
+
+	.counts {
+
+		output {
+			margin-left: 30%;
+		}
+
+		label {
+			width: 94px;
+			text-align: center;
+			margin-left: 30%;
+			margin-top: -50px;
+			font-size: 1.5em;
+		}
+
+		.windowsLabel {
+			text-align: left;
+			padding-left: -25px;
+		}
+
+		.doorsSliderOutput, .windowSliderOutput, .smSliderOutput {
+			width: 94px;
+			height: 100px;
+			background: url("../images/cardDoors.png") no-repeat;
+			font-size: 3em;
+			text-align: center;
+			padding-top: 15px;
+		}
+
+		.windowSliderOutput {
+			width: 94px;
+			height: 100px;
+			background: url("../images/cardWindows.png") no-repeat;
+			padding: 15px 0 0 5px;
+		}
+
+		.smSliderOutput {
+			background: url("../images/cardSm.png") no-repeat;
+			padding: 15px 5px 0 15px;
+			text-align: right;
+		}
+	}
+}
+
+form{
+
+	.submit{
+		display:block;
+		border:1px solid gray;
+		border-radius: 15px;
+		padding:10px 100px;
+	}
+}
+
+
+
+.floorUL{
+	list-style: none;
+
+	li{
+		width:30%;
+		padding:25px;
+		border:1px solid gray;
+		border-radius: 15px;
+
+		.floortxt{
+			margin-left:20px;
+		}
+
+	}
+}
+
+#wrapper {
+	width:75vw;
+	margin:0 auto;
+	display:flex;
+
+	#detail {
+		width: 75vw;
+		padding: 3em;
+		border: 1px solid gray;
+		border-radius: 15px;
+
+		.nav-item {
+			margin-right: $mr-menu;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			.roomLink {
+				text-decoration: none;
+				color: #707070;
+
+				&:hover {
+					color: $color1;
+				}
+			}
+
+			.active {
+				color: $color1;
+			}
+
+			.add-green {
+				width: 30px;
+				height: 30px;
+			}
+		}
+
+		.roomList {
+			list-style: none;
+			padding: 16px;
+
+			li {
+				display: inline-block;
+				margin-right: $mr-menu;
+			}
+
+		}
+	}
+
+	.houses{
+		flex-wrap: nowrap;
+		width:200px !important;
+
+		.card{
+			width:150px;
+		}
+
+
+	}
+}
+
+.sb{
+	padding-bottom:15px;
+}

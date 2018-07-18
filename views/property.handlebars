@@ -1,0 +1,218 @@
+<div class="detailHead">
+	<img src="/images/arrowLeft.png">
+	<a href="/properties" class="backTxt">back to overview</a>
+</div>
+
+<div id="wrapper">
+
+	<section id="detail">
+
+		{{#house}}
+			<div class="cardHead">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm">
+							{{street}}, {{zip}} {{city}}
+						</div>
+						<div class=" text-center">
+							No. {{id}}
+						</div>
+						<div class="col-sm text-right">
+							modified: {{getdate lastedit}}
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/house}}
+
+
+		<div class="floorLinks">
+			{{#floors}}
+					<a class="{{ifFloor floorIDext floorID}}" href="/property/{{houseID}}/{{floorID}}">{{floor}}</a>
+			{{/floors}}
+			<img class="add-white" data-toggle="modal" data-target="#addFloorModal" data-whatever="@mdo" src="/images/add-white.png">
+		</div>
+
+
+		<ul class="nav nav-pills mb-3 roomLinks" id="pills-tab" role="tablist">
+
+			{{#property}}
+				{{#if room}}
+					<li class="nav-item">
+						<a class="roomLink {{setActiveTab @index}}" id="pills-home-tab" data-toggle="pill" href="#menu{{strReplace room}}" role="tab" aria-controls="pills-home" aria-selected="true">{{room}}</a>
+					</li>
+				{{/if}}
+			{{/property}}
+
+			<li class="nav-item">
+				<img class="add-green" data-toggle="modal" data-target="#addRoomModal" data-whatever="@mdo" src="/images/add-green.png">
+			</li>
+		</ul>
+
+		<div class="tab-content" id="pills-tabContent">
+			{{#property}}
+				{{#if room}}
+					<div class="tab-pane fade show {{setActiveTab @index}}" id="menu{{strReplace room}}" role="tabpanel" aria-labelledby="pills-home-tab">
+						<form action="/property/update" method="post">
+
+							<div class="wrap">
+
+								<span class="counts">
+									<output class="doorsSliderOutput" id="doorsSliderOutput{{@index}}">{{doors}}</output><br>
+									<label for="doors">doors</label><br>
+									<input id="doorsSlider{{@index}}" name="doors" type="range" min="0" max="10" value="{{doors}}" step="1">
+
+								</span>
+
+								<span class="counts">
+									<output class="windowSliderOutput" id="windowSliderOutput{{@index}}">{{windows}}</output><br>
+									<label for="windows" class="windowsLabel">windows</label><br>
+									<input id="windowSlider{{@index}}" name="windows" type="range" min="0" max="10" value="{{windows}}" step="1">
+								</span>
+
+								<span class="counts">
+									<output class="smSliderOutput" id="smSliderOutput{{@index}}">{{sm}}</output><br>
+									<label for="sm" >qm</label><br>
+									<input id="smSlider{{@index}}" type="range" name="sm" min="0" max="120" value="{{sm}}" step="1"><br>
+								</span>
+							</div>
+
+								<input type="hidden" name="houseID" value="{{houseID}}">
+								<input type="hidden" name="floorID" value="{{floorID}}">
+								<input type="hidden" name="id" value="{{id}}">
+
+								<input type="submit" class="submit btn btn-light mx-auto mt-5" value="save card">
+						</form>
+					</div>
+
+					<script>
+
+						document.getElementById('doorsSlider{{@index}}').addEventListener('input',() => {
+							const val = document.getElementById('doorsSlider{{@index}}').value;
+							document.getElementById('doorsSliderOutput{{@index}}').innerHTML = val;
+						});
+
+						document.getElementById('windowSlider{{@index}}').addEventListener('input',() => {
+							const val = document.getElementById('windowSlider{{@index}}').value;
+							document.getElementById('windowSliderOutput{{@index}}').innerHTML = val;
+						});
+
+						document.getElementById('smSlider{{@index}}').addEventListener('input',() => {
+							const val = document.getElementById('smSlider{{@index}}').value;
+							document.getElementById('smSliderOutput{{@index}}').innerHTML = val;
+						})
+
+
+					</script>
+				{{/if}}
+			{{/property}}
+
+		</div>
+
+	</section>
+
+{{#overview}}
+	<section class="houses">
+		<div class="card">
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm text-center sb">
+							<img src="../../images/floors.png"><br>
+							{{countFloors}} floors
+						</div>
+						<div class="col-sm text-center sb">
+							<img src="../../images/rooms.png"><br>
+							{{countRooms}} rooms
+						</div>
+						<div class="col-sm text-center sb">
+							<img src="../../images/windows.png"><br>
+							{{countWindows}} windows
+						</div>
+						<div class="col-sm text-center sb">
+							<img src="../../images/doors.png"><br>
+							{{countDoors}} doors
+						</div>
+						<div class="col-sm sm text-center">
+							<img src="../../images/sm.png"><br>
+							{{countSM}} qm
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{{/overview}}
+
+
+<div class="modal fade" id="addFloorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">add floor</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form action="/property/addFloor" method="post">
+					<div>
+						<select class="form-control" id="floorName" name="floorName">
+							<option>Select the floor you want to add!</option>
+							{{#floorSelect}}
+									<option value="{{id}}">{{floor}}</option>
+							{{/floorSelect}}
+						</select>
+						<input type="hidden" name="houseID" value="{{houseID}}">
+					</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<input type="submit" class="btn btn-primary" value="submit">
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="addRoomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">add room</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form action="/property/addRoom" method="post">
+					<div>
+						<input class="form-control" type="text" id="roomName" name="roomName" placeholder="enter room name">
+						<input type="hidden" name="houseID" value="{{houseID}}">
+						<input type="hidden" name="floorID" value="{{floorID}}">
+					</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<input type="submit" class="btn btn-primary" value="submit">
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$( document ).ready(function() {
+
+		$('a[href="#menukitchen"]').tab('show');
+
+	});
+
+</script>
+
+
+
+

@@ -1,19 +1,21 @@
 {
-  "name": "hw9",
-  "version": "10.0.0",
+  "name": "Abschlussprojekt",
+  "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node server"
   },
-  "author": "",
+  "author": "Tino Klein",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.15.0",
-    "node-fetch": "^2.1.2"
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "rangeslider.js": "^2.3.2"
   }
 }
