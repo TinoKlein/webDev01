@@ -4,12 +4,14 @@
 
     npm install
     
-to install dependencies
+to install dependencies 
 
-start your mysql server 
-
-you can find the file webdev1.sql in db folder
+you can find the file webdev1.sql in the db folder
 please import the file to your database
+
+edit the file ./exports/dbConnection.js and enter your MySql username, password and the database name
+
+Start your mysql server and make sure he is up and running!
 
 **run**
 
